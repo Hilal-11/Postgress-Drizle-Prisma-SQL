@@ -15,7 +15,7 @@ const corsOptions = {
 app.use(cors(corsOptions))
 app.use(express.json())
 app.use(express.urlencoded( { extended: true } ))
-app.use('/api/v1' , authRouter);
+app.use('/api/v1/users' , authRouter);
 
 
 app.get("/" , (req , res) => {
