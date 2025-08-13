@@ -1,6 +1,8 @@
 import express from "express"
 const userRouter = express.Router();
 
+import isLoggedIn from "../middleware/auth.middleware.js"; 
+
 import register from "../controllers/register.controller.js"
 import varify from '../controllers/varify.controller.js'
 import login from '../controllers/login.controller.js'
@@ -12,9 +14,11 @@ import logout from '../controllers/logout.controller.js'
 router.post("/register" , register);
 router.post("/varify/:token" , varify);
 router.post("/login" , login);
-router.get("/profile" , profile);
+
+router.get("/profile" , isLoggedIn , profile);
+router.get("/logout", isLoggedIn , logout);
+
 router.post("/forgetPassword" , forgetPassword);
 router.post("/resetPassword" , resetPassword);
-router.get("/logout", logout);
 
 export default userRouter
