@@ -16,7 +16,6 @@ const isLoggedIn = async (req , res , next) => {
         console.log(decode)
         req.user = decoded
         next()
-
     }catch(error) {
         console.log(error.message);
         res.status().json({
