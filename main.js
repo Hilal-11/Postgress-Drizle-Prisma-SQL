@@ -10,7 +10,9 @@ const app = express();
 app.use(cookieParser());
 const corsOptions = {
     origin: process.env.BASE_URL,
-    optionSuccessStatus: 200
+    methods: ["POST","GET","PUT","PATCH","DELETE"],
+    allowedHeaders: ["Content-Type", "Authentication"],
+    Credential: true
 }
 app.use(cors(corsOptions))
 app.use(express.json())
