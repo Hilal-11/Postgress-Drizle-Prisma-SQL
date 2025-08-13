@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client"
 const prisma = new PrismaClient();
 import bcypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
-import crypto, { hash } from 'crypto'
+import crypto from 'crypto'
 const register = async (req , res) => {
     const { name , email , phone , password} = req.body;
     if(!name || !email || !phone || !password ){
@@ -53,9 +53,10 @@ const register = async (req , res) => {
 
         // send mail using node mailer
 
-        
-
-
+        res.status(200).json({
+            success: true,
+            message: "successfully register user" 
+        })
 
     }catch(error) {
         console.log(error.message)
