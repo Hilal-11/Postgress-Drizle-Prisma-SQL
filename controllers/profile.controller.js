@@ -25,5 +25,4 @@ const profile = async (req , res) => {
         })
     }
 }
-
 export default profile
