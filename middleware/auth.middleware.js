@@ -1,5 +1,4 @@
-import { PrismaClient } from "@prisma/client/extension";
-const prisma = PrismaClient();
+
 import jwt, { decode } from "jsonwebtoken"
 const isLoggedIn = async (req , res , next) => {
     const token = req.cookies?.token;
