@@ -11,7 +11,7 @@ const login = async (req , res) => {
         })
     }
     try{
-        const user = await prisma.User.findUnique({ where: { email } })
+        const user = await prisma.user.findUnique({ where: { email } })
         if(!user) {
             return res.status(400).json({
                 success: false,

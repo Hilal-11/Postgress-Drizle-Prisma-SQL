@@ -3,7 +3,7 @@ const prisma = PrismaClient()
 const profile = async (req , res) => {
     const { userId } = req.user.id
     try{
-        const user = await prisma.User.findUnique({ where: { userId } })
+        const user = await prisma.user.findUnique({ where: { userId } })
         if(!user) {
             return res.status(404).json({
                 success: false,

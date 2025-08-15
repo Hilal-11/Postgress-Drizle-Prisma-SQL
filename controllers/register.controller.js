@@ -12,7 +12,7 @@ const register = async (req , res) => {
         })
     }
     try{
-        const userExists = await prisma.User.findUnique({ 
+        const userExists = await prisma.user.findUnique({ 
             where : email 
         })
         if(userExists) {
@@ -42,7 +42,7 @@ const register = async (req , res) => {
         // )
 
         // create user for storing the in DATABASE
-        const user = await prisma.User.create({
+        const user = await prisma.user.create({
             name,
             email,
             phone,
